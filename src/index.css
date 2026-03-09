@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base - Black */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 96%;
+
+    /* Card */
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 96%;
+
+    /* Primary - Orange */
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 25 95% 43%;
+
+    /* Secondary - Light Gray */
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 96%;
+    --secondary-hover: 0 0% 22%;
+
+    /* Accent - Orange */
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Muted */
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 50%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* UI Elements */
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 25 95% 53%;
+    --radius: 0.75rem;
+  }
+
+  .light {
+    --background: 0 0% 97%;
+    --foreground: 0 0% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 25 95% 43%;
+    --secondary: 0 0% 92%;
+    --secondary-foreground: 0 0% 8%;
+    --secondary-hover: 0 0% 85%;
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 0 0% 93%;
+    --muted-foreground: 0 0% 40%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 25 95% 53%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-[hsl(var(--primary-hover))]
+           font-semibold py-3 px-8 rounded-lg inline-flex items-center gap-2
+           transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-[hsl(var(--secondary-hover))]
+           font-semibold py-3 px-8 rounded-lg inline-flex items-center gap-2
+           transition-all duration-200;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground
+           font-semibold py-3 px-8 rounded-lg inline-flex items-center gap-2
+           transition-all duration-200;
+  }
+
+  .section-padding {
+    @apply px-5 md:px-12 lg:px-20 py-16 md:py-24;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border rounded-xl;
+  }
+}
+
+/* Infinite scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* GSAP smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
